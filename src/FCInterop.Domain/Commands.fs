@@ -1,10 +1,9 @@
 ﻿namespace Domain
 
 open System
+open FCInterop.Domain.Entities
 
 
-
-type User = { Name: string; LastName: string }
 
 module Commands =
     open System

@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using Domain;
+using FCInterop.Domain;
 using Microsoft.FSharp.Core;
 using static Domain.Users;
 using static Domain.Commands.Filter;
 using static System.Console;
 using static Domain.Commands;
+using static FCInterop.Domain.Entities;
 
 #pragma warning disable CA1303
 
 var exampleUsers = new List<User>()
 {
-    new User("John", "Doe"),
-    new User("Jane", "Doe"),
-    new User("Cannolo", "Siciliano"),
-    new User("Maria", "Rossi"),
+    new Entities.User("John", "Doe"),
+    new Entities.User("Jane", "Doe"),
+    new Entities.User("Cannolo", "Siciliano"),
+    new Entities.User("Maria", "Rossi"),
 };
 
 // Instantiating UsersInMemory with the example users
@@ -50,12 +52,12 @@ foreach(var user in usersInMemory.filter(byNames(["jane","John","Pippo"])))
 
 WriteLine("\n Filter by predicate");
 {
-    foreach(var user in usersInMemory.filter(byPredicate(λ((User u) => 
+    foreach(var user in usersInMemory.filter(byPredicate(λ((Entities.User u) => 
                 string.Equals(u.Name, "maria", StringComparison.OrdinalIgnoreCase)
                 ))))
     {
         WriteLine($"Name: {user.Name}, LastName: {user.LastName}");
     }
 }
-usersInMemory.filter(byPredicate(λ<User, bool>(_ => true)));
+usersInMemory.filter(byPredicate(λ<Entities.User, bool>(_ => true)));
 #pragma warning restore CA1303
