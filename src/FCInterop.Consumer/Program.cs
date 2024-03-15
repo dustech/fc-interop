@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using static FCInterop.Domain.Common;
 using static FCInterop.Domain.Users;
-using static FCInterop.Domain.Users.Filter;
 using static System.Console;
 using static FCInterop.Domain.Entities;
 

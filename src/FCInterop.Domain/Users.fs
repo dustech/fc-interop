@@ -10,11 +10,11 @@ module Users =
         | ByNames of seq<string>
         | ByLastnames of seq<string>
         | ByPredicate of (User -> bool)
-        static member byName value = ByNames [ value ]
-        static member byNames values = ByNames values
-        static member byLastName value = ByLastnames [ value ]
-        static member byLastNames values = ByLastnames values
-        static member byPredicate predicate = ByPredicate predicate
+    let byName value = ByNames [ value ]
+    let byNames values = ByNames values
+    let byLastName value = ByLastnames [ value ]
+    let byLastNames values = ByLastnames values
+    let byPredicate predicate = ByPredicate predicate
 
     type IUser =
         inherit seq<User>
