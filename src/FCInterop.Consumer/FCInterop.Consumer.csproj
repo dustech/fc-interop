@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FCInterop.Consumer</RootNamespace>
+    <AssemblyName>FCInterop.Consumer</AssemblyName>    
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FCInterop.Domain\FCInterop.Domain.fsproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="8.0.200"/>
+  </ItemGroup>
+
+</Project>
