@@ -16,10 +16,6 @@ module Users =
         static member byLastNames values = ByLastnames values
         static member byPredicate predicate = ByPredicate predicate
 
-    // type IUser =
-    //     inherit seq<User>
-    //     abstract getUsers: UserQuery -> seq<User>
-
     type IUser =
         inherit seq<User>
         abstract filter: seq<Filter> -> seq<User>
@@ -28,7 +24,6 @@ module Users =
     type UsersInMemory(users: seq<User>) =
         interface IUser with
             member _.GetEnumerator() = users.GetEnumerator()
-            //(this :> seq<User>).GetEnumerator() :> System.Collections.IEnumerator
             member this.GetEnumerator() =
                 (this :> seq<User>).GetEnumerator() :> System.Collections.IEnumerator
 
