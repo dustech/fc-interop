@@ -15,10 +15,10 @@ using static FCInterop.Domain.Entities;
 
 var exampleUsers = new List<User>()
 {
-    new Entities.User("John", "Doe"),
-    new Entities.User("Jane", "Doe"),
-    new Entities.User("Cannolo", "Siciliano"),
-    new Entities.User("Maria", "Rossi"),
+    new ("John", "Doe"),
+    new ("Jane", "Doe"),
+    new ("Cannolo", "Siciliano"),
+    new ("Maria", "Rossi"),
 };
 
 // Instantiating UsersInMemory with the example users
@@ -52,12 +52,12 @@ foreach(var user in usersInMemory.filter(byNames(["jane","John","Pippo"])))
 
 WriteLine("\n Filter by predicate");
 {
-    foreach(var user in usersInMemory.filter(byPredicate(λ((Entities.User u) => 
+    foreach(var user in usersInMemory.filter(byPredicate(λ((User u) => 
                 string.Equals(u.Name, "maria", StringComparison.OrdinalIgnoreCase)
                 ))))
     {
         WriteLine($"Name: {user.Name}, LastName: {user.LastName}");
     }
 }
-usersInMemory.filter(byPredicate(λ<Entities.User, bool>(_ => true)));
+usersInMemory.filter(byPredicate(λ<User, bool>(_ => true)));
 #pragma warning restore CA1303
