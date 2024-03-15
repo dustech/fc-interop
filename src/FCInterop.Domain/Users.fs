@@ -1,13 +1,11 @@
-﻿namespace Domain
+﻿namespace FCInterop.Domain
 
 open System
 open FCInterop.Domain.Entities
 
 
 
-module Commands =
-    open System
-
+module Users =
     type Filter =
         | ByNames of seq<string>
         | ByLastnames of seq<string>
@@ -17,13 +15,6 @@ module Commands =
         static member byLastName value = ByLastnames [ value ]
         static member byLastNames values = ByLastnames values
         static member byPredicate predicate = ByPredicate predicate
-
-    let λ (func: Func<'a, 'b>) : 'a -> 'b = func.Invoke
-    let lambda = λ
-
-open Commands
-
-module Users =
 
     // type IUser =
     //     inherit seq<User>

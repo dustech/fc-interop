@@ -11,8 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Common.fs" />    
     <Compile Include="Entities.fs" />    
-    <Compile Include="Commands.fs" />
+    <Compile Include="Users.fs" />
   </ItemGroup>
 
 </Project>

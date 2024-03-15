@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
-using Domain;
-using FCInterop.Domain;
-using Microsoft.FSharp.Core;
-using static Domain.Users;
-using static Domain.Commands.Filter;
+using static FCInterop.Domain.Common;
+using static FCInterop.Domain.Users;
+using static FCInterop.Domain.Users.Filter;
 using static System.Console;
-using static Domain.Commands;
 using static FCInterop.Domain.Entities;
 
 #pragma warning disable CA1303
