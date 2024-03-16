@@ -47,3 +47,20 @@ module Users =
             member this.filter filter = [ filter ] |> (this :> IUser).filter
 
     let toUsersInMemory users : IUser = UsersInMemory users
+
+
+type Query = | ByNames of seq<string>
+type User' = {
+    Name : string
+}
+module Users' =
+    let eq (a: string) (b: string) =
+                    String.Equals(a, b, StringComparison.OrdinalIgnoreCase)
+    let rec filter user query =
+        match query with
+        | ByNames names -> names |> Seq.exists (eq user.Name)
+    let query (users:seq<User'>) (query:Query) =
+        users
+        |> Seq.filter (fun user -> filter user query)
+    
+    let toQueryableUsers users = query users           

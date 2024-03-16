@@ -1,18 +1,18 @@
-module FCInterop.Domain.UsersTests
+namespace FCInterop.Domain.F.Tests
 
 open Xunit
-open FCInterop.Domain
 open FCInterop.Domain.Entities
 open FCInterop.Domain.Users
-// Sample data for testing
-let users = [
-    { Name = "Alice"; LastName = "Johnson" }
-    { Name = "Bob"; LastName = "Smith" }
-    { Name = "Carol"; LastName = "Johnson" }
-    { Name = "Dave"; LastName = "Brown" }
-]
+
 
 type UsersTests() =
+    // Sample data for testing
+    let users = [
+        { Name = "Alice"; LastName = "Johnson" }
+        { Name = "Bob"; LastName = "Smith" }
+        { Name = "Carol"; LastName = "Johnson" }
+        { Name = "Dave"; LastName = "Brown" }
+    ]
 
     
     // Test filtering by single name
