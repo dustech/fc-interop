@@ -49,17 +49,21 @@ module Users =
     let toUsersInMemory users : IUser = UsersInMemory users
 
 
-type Query = | ByNames of seq<string>
-type User' = {
-    Name : string
-}
-module Users' =
+
+module UsersFu =
+    type Query = | ByNames of seq<string>
+    let byName value = ByNames [ value ]
+    let byNames = ByNames 
+    type UserFu = {
+        Name : string
+    }
+        
     let eq (a: string) (b: string) =
                     String.Equals(a, b, StringComparison.OrdinalIgnoreCase)
     let rec filter user query =
         match query with
         | ByNames names -> names |> Seq.exists (eq user.Name)
-    let query (users:seq<User'>) (query:Query) =
+    let query (users:seq<UserFu>) (query:Query) =
         users
         |> Seq.filter (fun user -> filter user query)
     

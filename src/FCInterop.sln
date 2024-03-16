@@ -11,6 +11,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FCInterop.Domain.F.Tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7DFD3AE2-8448-443A-A552-E34205AAC7E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCInterop.Domain.C.Tests", "FCInterop.Domain.C.Tests\FCInterop.Domain.C.Tests.csproj", "{F184EE38-B5AB-4BAA-8EEC-337814DFC169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,13 @@ Global
 		{6D6FDC79-7353-4AF9-8357-0E6E6C7E4ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D6FDC79-7353-4AF9-8357-0E6E6C7E4ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D6FDC79-7353-4AF9-8357-0E6E6C7E4ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F184EE38-B5AB-4BAA-8EEC-337814DFC169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F184EE38-B5AB-4BAA-8EEC-337814DFC169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F184EE38-B5AB-4BAA-8EEC-337814DFC169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F184EE38-B5AB-4BAA-8EEC-337814DFC169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6D6FDC79-7353-4AF9-8357-0E6E6C7E4ECD} = {7DFD3AE2-8448-443A-A552-E34205AAC7E1}
+		{F184EE38-B5AB-4BAA-8EEC-337814DFC169} = {7DFD3AE2-8448-443A-A552-E34205AAC7E1}
 	EndGlobalSection
 EndGlobal
