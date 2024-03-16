@@ -51,12 +51,17 @@ module Users =
 
 
 module UsersFu =
-    type Query = | ByNames of seq<string>
-    let byName value = ByNames [ value ]
-    let byNames = ByNames 
     type UserFu = {
         Name : string
     }
+    type Query = | ByNames of seq<string>    
+    type Command = | Insert of seq<UserFu>
+    
+    //type Operation = 
+    let byName value = ByNames [ value ]
+    let byNames = ByNames
+    let insert cmd = Insert [cmd]
+    let insertMany = Insert
         
     let eq (a: string) (b: string) =
                     String.Equals(a, b, StringComparison.OrdinalIgnoreCase)
@@ -67,4 +72,12 @@ module UsersFu =
         users
         |> Seq.filter (fun user -> filter user query)
     
-    let toQueryableUsers users = query users           
+    let cmd (users: ResizeArray<UserFu>) (cmd: Command) =
+        match cmd with
+        | Insert us ->
+            for user in us do
+                users.Add(user)
+            ()                   
+        
+    let toQueryableUsers users = query users
+    let toCommandUsers users = cmd users
