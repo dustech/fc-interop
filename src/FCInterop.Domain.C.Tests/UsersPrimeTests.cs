@@ -37,4 +37,5 @@ public class UsersPrimeTests
 
         Assert.Equal(2, Users.Count());
     }
+    
 }
