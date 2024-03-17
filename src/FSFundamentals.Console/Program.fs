@@ -25,11 +25,9 @@ let main argv =
         balance <- match action with
                     | "d" -> balance + getAmount()
                     | "w" -> balance - getAmount()
-                    | "x" -> running <- false
-                             balance
-                    | _ -> balance
-        
-        
+                    | _ -> running <- action <> "x"
+                           balance
+                
 
     printfn "Bye!"
     0
