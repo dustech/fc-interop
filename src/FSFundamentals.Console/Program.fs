@@ -15,6 +15,9 @@ let main argv =
     let mutable running = true
 
     while running do
+        
+        printfn "Balance: %A" balance
+        
         let action = promptUser ()
         printfn "You told me to do this: %A" action
         running <- action <> "x"
