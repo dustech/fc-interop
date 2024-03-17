@@ -6,13 +6,16 @@ let promptUser () =
 
 
 [<EntryPoint>]
-let main argv = 
-    
+let main argv =
+
     printfn "Hello from the transaction processor!"
 
+    let mutable balance = 0m
+
     let mutable running = true
-    while running do 
-        let action = promptUser()
+
+    while running do
+        let action = promptUser ()
         printfn "You told me to do this: %A" action
         running <- action <> "x"
 
