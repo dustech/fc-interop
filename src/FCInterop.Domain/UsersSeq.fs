@@ -21,7 +21,7 @@ module UsersSeq =
         abstract filter: seq<Filter> -> seq<User>
         abstract filter: Filter -> seq<User>
 
-    type UsersInMemory(users: seq<User>) =
+    type internal UsersInMemory(users: seq<User>) =
         interface IUser with
             member _.GetEnumerator() = users.GetEnumerator()
             member this.GetEnumerator() =
@@ -52,14 +52,4 @@ module UsersSeq =
 
 open UsersSeq
 
-module Users =    
-    type Query = | ByNames of seq<string>    
-    type Command = | Create of seq<User>
-    let byName value = ByNames [ value ]
-    let byNames = ByNames
-    let create cmd = Create [cmd]
-    let createMany = Create
-                    
-    
-    
  
