@@ -14,7 +14,7 @@ let main argv =
     while running do 
         let action = promptUser()
         printfn "You told me to do this: %A" action
-        running <- false
+        running <- action <> "x"
 
     printfn "Bye!"
     0
