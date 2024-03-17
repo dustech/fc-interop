@@ -10,9 +10,11 @@ let main argv =
     
     printfn "Hello from the transaction processor!"
 
-    let action = promptUser()
-
-    printfn "You have selected %A" action
+    let mutable running = true
+    while running do 
+        let action = promptUser()
+        printfn "You told me to do this: %A" action
+        running <- false
 
     printfn "Bye!"
     0
