@@ -4,6 +4,7 @@ let promptUser () =
     printf "(d)eposit, (w)ithdraw or e(x)it: "
     Console.ReadLine()
 
+let getAmount () = 10m
 
 [<EntryPoint>]
 let main argv =
@@ -20,7 +21,15 @@ let main argv =
         
         let action = promptUser ()
         printfn "You told me to do this: %A" action
-        running <- action <> "x"
+        
+        balance <- match action with
+                    | "d" -> balance + getAmount()
+                    | "w" -> balance - getAmount()
+                    | "x" -> running <- false
+                             balance
+                    | _ -> balance
+        
+        
 
     printfn "Bye!"
     0
