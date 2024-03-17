@@ -1,15 +1,16 @@
 ﻿open System
 
+let promptUser () =
+    printf "(d)eposit, (w)ithdraw or e(x)it: "
+    Console.ReadLine()
+
+
 [<EntryPoint>]
 let main argv = 
     
-
-
     printfn "Hello from the transaction processor!"
 
-    printf "(d)eposit, (w)ithdraw or e(x)it: "
-
-    let action = Console.ReadLine()
+    let action = promptUser()
 
     printfn "You have selected %A" action
 
