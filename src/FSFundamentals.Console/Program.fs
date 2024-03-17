@@ -2,9 +2,11 @@
 
 let promptUser () =
     printf "(d)eposit, (w)ithdraw or e(x)it: "
-    Console.ReadLine()
+    Console.ReadKey().KeyChar
 
-let getAmount () = 10m
+let getAmount () =
+    printf "Enter the amount of the transaction: "
+    Console.ReadLine() |> Decimal.Parse
 
 [<EntryPoint>]
 let main argv =
@@ -19,13 +21,13 @@ let main argv =
         
         printfn "Balance: %A" balance
         
-        let action = promptUser ()
-        printfn "You told me to do this: %A" action
+        let action = promptUser()
+        printfn "\nYou told me to do this: %A" action
         
         balance <- match action with
-                    | "d" -> balance + getAmount()
-                    | "w" -> balance - getAmount()
-                    | _ -> running <- action <> "x"
+                    | 'd' -> balance + getAmount()
+                    | 'w' -> balance - getAmount()
+                    | _ -> running <- action <> 'x'
                            balance
                 
 
