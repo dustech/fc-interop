@@ -2,11 +2,11 @@ namespace FCInterop.Domain.F.Tests
 
 open FCInterop.Domain
 open Xunit
-open UsersFu
+open Users
 
 
 
-type UsersFuTests() =
+type UsersTests() =
         
     let users = [
         { Name = "Alice" }

@@ -13,7 +13,7 @@
   <ItemGroup>
     <Compile Include="Common.fs" />    
     <Compile Include="Entities.fs" />    
-    <Compile Include="Users.fs" />
+    <Compile Include="UsersSeq.fs" />
   </ItemGroup>
 
 </Project>

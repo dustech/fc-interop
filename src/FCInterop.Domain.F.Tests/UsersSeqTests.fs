@@ -2,10 +2,10 @@ namespace FCInterop.Domain.F.Tests
 
 open Xunit
 open FCInterop.Domain.Entities
-open FCInterop.Domain.Users
+open FCInterop.Domain.UsersSeq
 
 
-type UsersTests() =
+type UsersSeqTests() =
     // Sample data for testing
     let users = [
         { Name = "Alice"; LastName = "Johnson" }

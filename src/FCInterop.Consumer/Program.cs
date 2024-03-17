@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using static FCInterop.Domain.Common;
-using static FCInterop.Domain.Users;
+using static FCInterop.Domain.UsersSeq;
 using static System.Console;
 using static FCInterop.Domain.Entities;
 
