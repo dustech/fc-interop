@@ -15,3 +15,7 @@ module Common =
    
     type ICommand<'a> =
         abstract ``do``: 'a -> unit
+    
+    let empty = ""
+    
+   

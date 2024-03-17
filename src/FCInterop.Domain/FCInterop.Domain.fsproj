@@ -14,6 +14,7 @@
     <Compile Include="Common.fs" />    
     <Compile Include="Entities.fs" />    
     <Compile Include="UsersSeq.fs" />
+    <Compile Include="UsersInMemory.fs" />
   </ItemGroup>
 
 </Project>
