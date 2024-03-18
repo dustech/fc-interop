@@ -1,4 +1,4 @@
-﻿namespace FSFundamentals.Console.Transaction
+namespace FSFundamentals.Console.Transaction
 
 module Main =
     
