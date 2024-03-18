@@ -1,4 +1,6 @@
-﻿open System
+﻿module FSFundamentals.Console.Program
+
+open System
 
 let promptUser () =
     printf "(d)eposit, (w)ithdraw or e(x)it: "
