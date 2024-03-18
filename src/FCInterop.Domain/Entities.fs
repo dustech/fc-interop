@@ -1,8 +1,8 @@
-namespace FCInterop.Domain
+module FCInterop.Domain.Entities
 
-module Entities =
 
-    type User =
-        { Name: string
-          LastName: string }
-        static member instance = { Name = empty; LastName = empty }
+
+type User =
+    { Name: string
+      LastName: string }
+    static member instance = { Name = empty; LastName = empty }
