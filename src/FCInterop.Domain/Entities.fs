@@ -1,5 +1,6 @@
-module FCInterop.Domain.Entities
+namespace FCInterop.Domain.Entities
 
+open FCInterop.Domain
 
 
 type User =

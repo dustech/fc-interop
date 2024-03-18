@@ -1,7 +1,7 @@
 module FCInterop.Domain.InMemory
 
 open FCInterop.Domain.Entities
-open FCInterop.Domain.Users
+
 
 
 let rec filter user query =
