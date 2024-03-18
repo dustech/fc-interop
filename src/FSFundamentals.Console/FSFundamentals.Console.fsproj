@@ -18,7 +18,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Driver.fs" />
+        <Compile Include="Program.fs"/>        
     </ItemGroup>
 
 </Project>

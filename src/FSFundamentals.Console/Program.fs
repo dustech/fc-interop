@@ -1,35 +1,15 @@
-﻿open System
+﻿namespace FSFundamentals.Console.Transaction
 
-let promptUser () =
-    printf "(d)eposit, (w)ithdraw or e(x)it: "
-    Console.ReadKey().KeyChar
+module Main =
+    
+    open Driver.UserConsole
+    
+    [<EntryPoint>]
+    let main argv =
 
-let getAmount () =
-    printf "Enter the amount of the transaction: "
-    Console.ReadLine() |> Decimal.Parse
-
-[<EntryPoint>]
-let main argv =
-
-    printfn "Hello from the transaction processor!"
-
-    let mutable balance = 0m
-
-    let mutable running = true
-
-    while running do
+        printfn "Hello from the transaction processor!"
         
-        printfn "Balance: %A" balance
+        userLoop()
         
-        let action = promptUser()
-        printfn "\nYou told me to do this: %A" action
-        
-        balance <- match action with
-                    | 'd' -> balance + getAmount()
-                    | 'w' -> balance - getAmount()
-                    | _ -> running <- action <> 'x'
-                           balance
-                
-
-    printfn "Bye!"
-    0
+        printfn "Bye!"
+        0
