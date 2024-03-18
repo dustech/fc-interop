@@ -1,10 +1,10 @@
 using System.Linq;
+using FCInterop.Domain.Entities;
 
 namespace FCInterop.Domain.C.Tests;
 
 using System.Collections.Generic;
 using static Users;
-using static Entities;
 using Xunit;
 
 public class UsersTests
@@ -44,7 +44,7 @@ public class UsersTests
     {
         var usersInMemory = InMemory.toUsersInMemory(Users);
 
-        Assert.IsAssignableFrom<Common.IQuery<Query, User>>(usersInMemory);
+        Assert.IsAssignableFrom<IQuery<Query, User>>(usersInMemory);
     }
 
     [Fact]

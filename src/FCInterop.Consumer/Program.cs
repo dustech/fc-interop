@@ -59,13 +59,14 @@
 
 using System.Collections.Generic;
 using FCInterop.Domain;
+using FCInterop.Domain.Entities;
 using static FCInterop.Domain.Users;
 using static System.Console;
 
 #pragma warning disable CA1303
 WriteLine("Starting computation.");
 
-var exampleUsers = new List<Entities.User>()
+var exampleUsers = new List<User>()
 {
     new("John", "Doe"),
     new("Jane", "Doe"),
