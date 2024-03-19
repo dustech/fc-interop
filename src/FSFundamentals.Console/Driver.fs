@@ -14,22 +14,16 @@ module UserConsole =
     
     let userLoop () =
         
-        let mutable balance = 0m
-
-        let mutable running = true
-
-        while running do
-            
-            printfn "Balance: %A" balance
-            
+        let rec loop balance = 
+            printfn $"Balance: %A{balance}"            
             let action = promptUser()
-            printfn "\nYou told me to do this: %A" action
-            
-            balance <- match action with
-                        | 'd' -> balance + getAmount()
-                        | 'w' -> balance - getAmount()
-                        | _ -> running <- action <> 'x'
-                               balance
+            printfn $"\nYou told me to do this: %A{action}"            
+            match action with
+                | 'd' -> loop <| balance + getAmount()
+                | 'w' -> loop <| balance - getAmount()
+                | 'x' -> ()
+                | _ -> loop balance
+        loop 0m
                     
 
 
