@@ -9,7 +9,7 @@ module Main =
 
         printfn "Hello from the transaction processor!"
         
-        userLoop()
+        run()
         
         printfn "Bye!"
         0

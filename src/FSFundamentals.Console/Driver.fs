@@ -12,7 +12,7 @@ module UserConsole =
         printf "Enter the amount of the transaction: "
         Console.ReadLine() |> Decimal.Parse
     
-    let userLoop () =
+    let run () =
         
         let rec loop balance = 
             printfn $"Balance: %A{balance}"            
@@ -24,6 +24,7 @@ module UserConsole =
                 | 'x' -> ()
                 | _ -> loop balance
         loop 0m
+        ()
                     
 
 
