@@ -2,6 +2,7 @@ module FSFundamentals.Console.Transaction.Driver
 
 open FSFundamentals.Console.Transaction.Domain
 open FSFundamentals.Console.Transaction.Domain.Account
+open FSFundamentals.Console.Transaction.Rules.Accounts
 
 module UserConsole =
 
@@ -23,14 +24,8 @@ module UserConsole =
             printfn $"\nYou told me to do this: %A{action}"
 
             match action with
-            | 'd' ->
-                (account, getAmount ())
-                ||> deposit
-                |> loop
-            | 'w' ->
-                (account, getAmount ())
-                ||> withdraw
-                |> loop
+            | 'd' -> (getAmount (), account) ||> deposit |> loop
+            | 'w' -> (getAmount (), account) ||> withdraw |> loop
             | 'x' -> ()
             | _ -> loop account
 
