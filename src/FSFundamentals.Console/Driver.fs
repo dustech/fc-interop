@@ -13,8 +13,15 @@ module UserConsole =
 
     let private getAmount () =
         printf "Enter the amount of the transaction: "
-        Console.ReadLine() |> Decimal.Parse
-
+        // Console.ReadLine() |> Decimal.Parse
+        let input = Console.ReadLine()
+        let (canParse, value) = input |> Decimal.TryParse
+        match canParse with
+        | true -> Ok value
+        | false -> Error $"Parse of amount failed: {input}"
+        
+        
+        
     let run () =
 
         let rec loop account =
@@ -23,10 +30,20 @@ module UserConsole =
             printfn $"\nYou told me to do this: %A{action}"
 
             match action with
-            | 'd' -> (getAmount (), account) ||> deposit |> loop
-            | 'w' -> (getAmount (), account) ||> withdraw |> loop
+            | 'd' | 'w' ->
+                match getAmount() with
+                | Ok amount ->
+                    match action with
+                    | 'd' -> (amount, account) ||> deposit |> loop
+                    | 'w' -> (amount, account) ||> withdraw |> loop
+                    | _ -> loop account
+                | Error e ->
+                    printfn $"%A{e}"
+                    loop account
             | 'x' -> ()
-            | _ -> loop account
+            | _ ->
+                printfn $"Invalid input {action}"
+                loop account
 
         loop instance
         ()
