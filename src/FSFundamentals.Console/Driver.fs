@@ -1,6 +1,5 @@
 module FSFundamentals.Console.Transaction.Driver
 
-open FSFundamentals.Console.Transaction.Domain
 open FSFundamentals.Console.Transaction.Domain.Account
 open FSFundamentals.Console.Transaction.Rules.Accounts
 
