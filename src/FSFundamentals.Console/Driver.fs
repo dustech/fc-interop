@@ -1,6 +1,7 @@
 module FSFundamentals.Console.Transaction.Driver
 
 open FSFundamentals.Console.Transaction.Domain
+open FSFundamentals.Console.Transaction.Domain.Account
 
 module UserConsole =
 
@@ -24,14 +25,14 @@ module UserConsole =
             match action with
             | 'd' ->
                 (account, getAmount ())
-                ||> Account.deposit
+                ||> deposit
                 |> loop
             | 'w' ->
                 (account, getAmount ())
-                ||> Account.withdraw
+                ||> withdraw
                 |> loop
             | 'x' -> ()
             | _ -> loop account
 
-        loop Account.instance
+        loop instance
         ()
