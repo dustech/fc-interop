@@ -1,11 +1,11 @@
 module FSFundamentals.Console.Transaction.Driver
 
-open FSFundamentals.Console.Transaction.Domain.Account
-open FSFundamentals.Console.Transaction.Rules.Accounts
 
 module UserConsole =
 
     open System
+    open Domain.Account
+    open Rules.Accounts
 
     let private promptUser () =
         printf "(d)eposit, (w)ithdraw or e(x)it: "
@@ -47,3 +47,21 @@ module UserConsole =
 
         loop instance
         ()
+
+module Utils =
+    open System.IO
+    let deleteAccountRepoFiles () =
+        Directory.GetFiles(".", "account_*.json") |> Array.iter File.Delete 
+
+module AccountRepoDriver =
+    open FSFundamentals.Console.Transaction.Domain
+    open Rules.Accounts
+    let run() =
+        
+        Utils.deleteAccountRepoFiles()
+        
+        Account.instance
+        |> deposit 100m
+        |> withdraw 30m
+        |> Repository.Account.put
+        

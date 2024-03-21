@@ -11,17 +11,22 @@
         <TargetFramework>net8.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
-        <RootNamespace>FSFundamentals.Console</RootNamespace>
-        <AssemblyName>FSFundamentals.Console</AssemblyName>
+        <RootNamespace>FSFundamentals.Console.Transaction</RootNamespace>
+        <AssemblyName>FSFundamentals.Console.Transaction</AssemblyName>
         <InvariantGlobalization>false</InvariantGlobalization>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Utils.fs" />
         <Compile Include="Domain.fs" />
         <Compile Include="Rules.fs" />
+        <Compile Include="Repository.fs" />
         <Compile Include="Driver.fs" />
-        <Compile Include="Program.fs"/>        
+        <Compile Include="Program.fs"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="FSharp.SystemTextJson" Version="1.2.42" />
+    </ItemGroup>
 </Project>
