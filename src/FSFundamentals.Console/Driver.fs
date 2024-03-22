@@ -65,4 +65,20 @@ module AccountRepoDriver =
         |> deposit 100m
         |> withdraw 30m
         |> Repository.Account.put
+        |> printfn "%A"
+        
+        let account = Repository.Account.get 0
+        account |> printfn "%A"
+
+        account 
+        |> withdraw 20m
+        |> Repository.Account.put
+        |> printfn "%A"
+
+        Repository.Account.get 0
+        |> printfn "%A"
+
+        // this currently is a problem
+        // Repository.Account.get 1
+        // |> printfn "%A"
         
