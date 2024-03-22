@@ -5,8 +5,9 @@ module Account =
     open Utils.Json.Serialization
     open Domain.Account
     
+    let accountDataDirectory = "account-data"
     let private getAccountFileName accountId =
-        Path.Combine("account-data",$"account_{accountId}.json")
+        Path.Combine(accountDataDirectory,$"account_{accountId}.json")
 
     let private getAccountData accountId =
         getAccountFileName accountId |> File.ReadAllText

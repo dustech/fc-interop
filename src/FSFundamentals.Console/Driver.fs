@@ -50,8 +50,9 @@ module UserConsole =
 
 module Utils =
     open System.IO
+    open Repository.Account
     let deleteAccountRepoFiles () =
-        Directory.GetFiles(".", "account_*.json") |> Array.iter File.Delete 
+        Directory.GetFiles(accountDataDirectory, "account_*.json") |> Array.iter File.Delete 
 
 module AccountRepoDriver =
     open FSFundamentals.Console.Transaction.Domain
