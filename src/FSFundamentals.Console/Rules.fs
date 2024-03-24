@@ -1,5 +1,7 @@
 module FSFundamentals.Console.Transaction.Rules
 
+open FSFundamentals.Console.Transaction.Domain.Transaction
+
 
 module Accounts =
     open FSFundamentals.Console.Transaction.Domain.Account
@@ -13,17 +15,27 @@ module Accounts =
             |> List.max
             |> (+) 1
     
-    let applyTransaction account amount transaction =
+    let applyTransaction account transaction =
+        let newTransactions = account.Transactions @ [transaction]
+        let newBalance =
+            newTransactions
+            |> List.map (fun t ->
+                match t.Type with
+                | Deposit -> t.Amount
+                | Withdraw -> -t.Amount
+                )
+            |> List.sum            
+            
         {
             account with
-                Balance = account.Balance + amount
-                Transactions = account.Transactions @ [transaction] 
+                Balance = newBalance
+                Transactions = newTransactions
         }        
     
     let deposit amount account =
         let newTransaction = Transaction.deposit (nextTransactionId account) amount
-        applyTransaction account amount newTransaction
+        applyTransaction account newTransaction
 
     let withdraw amount account =
         let newTransaction = Transaction.withdraw (nextTransactionId account) amount
-        applyTransaction account -amount newTransaction
+        applyTransaction account newTransaction
