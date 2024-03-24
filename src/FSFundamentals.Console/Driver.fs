@@ -1,6 +1,8 @@
 module FSFundamentals.Console.Transaction.Driver
 
 
+
+
 module UserConsole =
 
     open System
@@ -57,28 +59,35 @@ module Utils =
 module AccountRepoDriver =
     open FSFundamentals.Console.Transaction.Domain
     open Rules.Accounts
+    open Utils.Railway
     let run() =
         
         Utils.deleteAccountRepoFiles()
         
+        
         Account.instance
         |> deposit 100m
-        |> withdraw 30m
-        |> Repository.Account.put
-        |> printfn "%A"
-        
-        let account = Repository.Account.get 0
-        account |> printfn "%A"
+        |> withdraw 25m
+        |> Repository.Account.put 
+        |> ignore
 
-        account 
-        |> withdraw 20m
-        |> Repository.Account.put
-        |> printfn "%A"
+        // get an existing and non-existing account
+        Repository.Account.get 0 |> printfn "%A"
+        Repository.Account.get 1 |> printfn "%A"
 
-        Repository.Account.get 0
-        |> printfn "%A"
+        // modify get and put to return a Result<Account, string>
 
-        // this currently is a problem
-        // Repository.Account.get 1
-        // |> printfn "%A"
-        
+        // get and update an existing account
+        Repository.Account.get 0 
+        >>> deposit 40m
+        >>= Repository.Account.put
+        |> ignore
+
+        // check that on reload it is a new balance
+        Repository.Account.get 0 |> printfn "%A" 
+
+        // railway flows this error right through
+        Repository.Account.get 1
+        >>> deposit 40m
+        >>= Repository.Account.put
+        |> printfn "%A"

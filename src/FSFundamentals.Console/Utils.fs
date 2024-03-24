@@ -1,6 +1,9 @@
 module FSFundamentals.Console.Transaction.Utils
 
 
+module Railway =
+    let (>>=) result func = Result.bind func result 
+    let (>>>) result func = Result.map func result 
 module Json =
     module Serialization =
         open System.Text.Json
